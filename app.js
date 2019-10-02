@@ -1,11 +1,11 @@
 
 //ebay call for find items by keyword
-https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords
-&SERVICE-VERSION=1.0.0
-&SECURITY-APPNAME=TylerCas-ComicSea-PRD-a844463b1-2f780528
-&RESPONSE-DATA-FORMAT=XML
-&REST-PAYLOAD
-&keywords=harry%20potter%20phoenix
+// https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords
+// &SERVICE-VERSION=1.0.0
+// &SECURITY-APPNAME=TylerCas-ComicSea-PRD-a844463b1-2f780528
+// &RESPONSE-DATA-FORMAT=XML
+// &REST-PAYLOAD
+// &keywords=harry%20potter%20phoenix
 
 
 
