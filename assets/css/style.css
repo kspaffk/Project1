@@ -3,6 +3,17 @@ span {
     width: 100%
 }
 
+header{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h1{
+    font-family: 'Teleindicadores1Regular';
+    font-weight: normal;
+    font-style: normal;
+}
+
 .main-card {
     height: 390px;
 }
