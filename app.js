@@ -3,7 +3,7 @@
   var APIkey = "CTSV8BKGR6BEKQ3F";
   var ticker = "MSFT";
   var stockdate = "2019-10-04";
-  //sds
+  //sdsknk
 //Daily Adjusted
 var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
