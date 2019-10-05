@@ -1,5 +1,3 @@
-   
-$(document).ready(function(){
     // function to get HTML for price cards
     // examples
     // $(".price-row").append(getPriceCard("2019-02-19", 15.65, 15.15, 15.31, 15.42));
@@ -100,4 +98,3 @@ $(document).ready(function(){
       })
 
 
-});
