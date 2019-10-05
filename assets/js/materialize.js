@@ -70,7 +70,8 @@
             alt: "news-article"
         });
         // Card title which is the news article title
-        var newsTitle = $("<span>").addClass("card-title news-title").text(newsTitle);                // button to go to article
+        var newsTitle = $("<span>").addClass("card-title news-title").text(newsTitle);                
+        // button to go to article
         var newsLink = $("<a>").addClass("btn-floating halfway-fab waves-effect waves-light red").attr({
             href: newsURL,
             target: "_blank"
@@ -92,9 +93,3 @@
         return newsContainer;
 
     }
-  
-        $( document ).ready(function(){
-        $(".dropdown-trigger").dropdown();
-      })
-
-
