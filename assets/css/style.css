@@ -3,7 +3,7 @@ span {
 }
 
 .main-card {
-    height: 300px;
+    height: 390px;
 }
 
 .close-price {
@@ -24,4 +24,10 @@ span {
 .other-price-titles {
     font-size: 15px;
     padding: 5px;
+}
+
+@media screen and (min-width: 992px) {
+    .main-card {
+        height: 210px;
+    }
 }

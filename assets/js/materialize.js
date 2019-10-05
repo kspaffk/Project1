@@ -9,7 +9,7 @@ $(document).ready(function(){
     // function to get HTML for price cards
     function getPriceCard(date, high, low, open, close) {
         // create the container for the card
-        var container = $("<div>").addClass("col s12 m3");
+        var container = $("<div>").addClass("col s12 s4 m4 l4");
         // create the card display area
         var mainCard = $("<div>").addClass("main-card card cyan lighten-1");
         // specify the card content area
@@ -19,7 +19,7 @@ $(document).ready(function(){
         // add the closing price to the card
         var closePrice = $("<span>").addClass("close-price").text(close);
         // add another card container for the opening price
-        var openCard = $("<div>").addClass("col s12 m4");
+        var openCard = $("<div>").addClass("col s12 s4 l4");
         // create open card display area
         var openCardContent = $("<div>").addClass("card cyan lighten-4");
         // add opening price
@@ -27,7 +27,7 @@ $(document).ready(function(){
         // add opening title
         var openTitle = $("<span>").addClass("other-price-titles black-text").text("Open");
         // add another card container for the high price
-        var highCard = $("<div>").addClass("col s12 m4");
+        var highCard = $("<div>").addClass("col s12 s4 l4");
         // create high card display area
         var highCardContent = $("<div>").addClass("card cyan lighten-4");
         // add highing price
@@ -35,7 +35,7 @@ $(document).ready(function(){
         // add highing title
         var highTitle = $("<span>").addClass("other-price-titles black-text").text("High");
         // add another card container for the low price
-        var lowCard = $("<div>").addClass("col s12 m4");
+        var lowCard = $("<div>").addClass("col s12 s4 l4");
         // create low card display area
         var lowCardContent = $("<div>").addClass("card cyan lighten-4");
         // add lowing price
@@ -60,5 +60,8 @@ $(document).ready(function(){
         return container;
     }
 
-    $(".kent").append(getPriceCard("2019-02-19", 15.65, 15.15, 15.31, 15.42));
+    // examples
+    $(".price-row").append(getPriceCard("2019-02-19", 15.65, 15.15, 15.31, 15.42));
+    $(".price-row").append(getPriceCard("2018-02-19", 15.65, 15.15, 15.31, 15.42));
+    $(".price-row").append(getPriceCard("2017-02-19", 15.65, 15.15, 15.31, 15.42));
 });
