@@ -9,7 +9,7 @@ $(document).ready(function(){
     // function to get HTML for price cards
     function getPriceCard(date, high, low, open, close) {
         // create the container for the card
-        var container = $("<div>").addClass("col s12 s4 m4 l4");
+        var priceContainer = $("<div>").addClass("col s12 s4 m4 l4");
         // create the card display area
         var mainCard = $("<div>").addClass("main-card card cyan lighten-1");
         // specify the card content area
@@ -55,13 +55,55 @@ $(document).ready(function(){
         // append items to the main card
         cardContent.append(cardTitle, closePrice, openCard, highCard, lowCard);
         mainCard.append(cardContent);
-        container.append(mainCard);
+        priceContainer.append(mainCard);
         // return the container object
-        return container;
+        return priceContainer;
     }
 
     // examples
     $(".price-row").append(getPriceCard("2019-02-19", 15.65, 15.15, 15.31, 15.42));
     $(".price-row").append(getPriceCard("2018-02-19", 15.65, 15.15, 15.31, 15.42));
     $(".price-row").append(getPriceCard("2017-02-19", 15.65, 15.15, 15.31, 15.42));
+
+    function getNewsCards(newsTitle, newsDescription, newsURL, newsURLtoImg) {
+                // create the container for the card
+                var newsContainer = $("<div>").addClass("col s12 s4 m4 l4");
+                // create the card display area
+                var card = $("<div>").addClass("card cyan lighten-1");
+                // specify the card content area
+                var cardImg = $("<div>").addClass("card-image");
+                // image for card
+                var newsImg = $("<img>").attr({
+                    src: newsURLtoImg,
+                    alt: "news-article"
+                });
+                // Card title which is the news article title
+                var newsTitle = $("<span>").addClass("card-title news-title").text(newsTitle);                // button to go to article
+                var newsLink = $("<a>").addClass("btn-floating halfway-fab waves-effect waves-light red").attr({
+                    href: newsURL,
+                    target: "_blank"
+                });
+                var linkIcon = $("<i>").addClass("material-icons").text("Go");
+                // card content which has an article description
+                var newsDescDiv = $("<div>").addClass("card-content");
+                // paragraph for news description
+                var newsDescP = $("<p>").text(newsDescription);
+
+                // combine the image part of card
+                newsLink.append(linkIcon);
+                cardImg.append(newsImg, newsTitle, newsLink);
+                newsDescDiv.append(newsDescP);
+                card.append(cardImg, newsDescDiv);
+                newsContainer.append(card);
+
+                // return the card object
+                return newsContainer;
+    }
+
+    //examples
+    $(".news-row").append(getNewsCards("Avengers Save the Planet", "The Avengers finally figured out time travel and went back in town to kill Thanos before he used the stones.", "https://google.com", "https://cdn.vox-cdn.com/thumbor/QjYjrRLVMwCgjZSfE7JjC7URQns=/0x300:3733x2254/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/19253276/1040241490.jpg.jpg"));
+    $(".news-row").append(getNewsCards("Avengers Save the Planet", "The Avengers finally figured out time travel and went back in town to kill Thanos before he used the stones.", "https://google.com", "https://cdn.vox-cdn.com/thumbor/QjYjrRLVMwCgjZSfE7JjC7URQns=/0x300:3733x2254/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/19253276/1040241490.jpg.jpg"));
+    $(".news-row").append(getNewsCards("Avengers Save the Planet", "The Avengers finally figured out time travel and went back in town to kill Thanos before he used the stones.", "https://google.com", "https://cdn.vox-cdn.com/thumbor/QjYjrRLVMwCgjZSfE7JjC7URQns=/0x300:3733x2254/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/19253276/1040241490.jpg.jpg"));
+    $(".news-row").append(getNewsCards("Avengers Save the Planet", "The Avengers finally figured out time travel and went back in town to kill Thanos before he used the stones.", "https://google.com", "https://cdn.vox-cdn.com/thumbor/QjYjrRLVMwCgjZSfE7JjC7URQns=/0x300:3733x2254/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/19253276/1040241490.jpg.jpg"));
+    $(".news-row").append(getNewsCards("Avengers Save the Planet", "The Avengers finally figured out time travel and went back in town to kill Thanos before he used the stones.", "https://google.com", "https://cdn.vox-cdn.com/thumbor/QjYjrRLVMwCgjZSfE7JjC7URQns=/0x300:3733x2254/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/19253276/1040241490.jpg.jpg"));
 });
