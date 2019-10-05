@@ -1,0 +1,38 @@
+span {
+    display: block;
+    width: 100%
+}
+
+.main-card {
+    height: 390px;
+}
+
+.close-price {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.close {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.other-prices {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.other-price-titles {
+    font-size: 15px;
+    padding: 5px;
+}
+
+.news-title {
+    background-color: rgba(0, 131, 143, .3);
+}
+
+@media screen and (min-width: 992px) {
+    .main-card {
+        height: 210px;
+    }
+}
