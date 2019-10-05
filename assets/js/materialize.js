@@ -1,5 +1,3 @@
-   
-$(document).ready(function(){
     // function to get HTML for price cards
     // examples
     // $(".price-row").append(getPriceCard("2019-02-19", 15.65, 15.15, 15.31, 15.42));
@@ -72,7 +70,8 @@ $(document).ready(function(){
             alt: "news-article"
         });
         // Card title which is the news article title
-        var newsTitle = $("<span>").addClass("card-title news-title").text(newsTitle);                // button to go to article
+        var newsTitle = $("<span>").addClass("card-title news-title").text(newsTitle);                
+        // button to go to article
         var newsLink = $("<a>").addClass("btn-floating halfway-fab waves-effect waves-light red").attr({
             href: newsURL,
             target: "_blank"
@@ -94,10 +93,3 @@ $(document).ready(function(){
         return newsContainer;
 
     }
-  
-        $( document ).ready(function(){
-        $(".dropdown-trigger").dropdown();
-      })
-
-
-});

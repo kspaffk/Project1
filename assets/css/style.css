@@ -40,6 +40,7 @@ h1{
 
 .news-title {
     background-color: rgba(0, 131, 143, .3);
+    overflow: auto;
 }
 
 @media screen and (min-width: 992px) {
