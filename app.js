@@ -3,7 +3,7 @@
   var APIkey = "CTSV8BKGR6BEKQ3F";
   var ticker = "MSFT";
   var stockdate = "2019-10-04";
-  //sdsknk
+  //sdsknk  stockdate.split
 //Daily Adjusted
 var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
@@ -17,8 +17,8 @@ $.ajax({
   var dailyopen = response["Time Series (Daily)"][stockdate]["1. open"];
   var dailyclose = response["Time Series (Daily)"][stockdate]["4. close"];
 
-  console.log(stockdate)
-  console.log(dailyhigh)
+  console.log(typeof stockdate)
+  console.log(parseFloat(dailyhigh,2))
   console.log(dailylow)
   console.log(dailyopen)
   console.log(dailyclose)
