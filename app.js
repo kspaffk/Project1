@@ -1,27 +1,65 @@
+// Alpha Vantage API:
 
-//ebay call for find items by keyword
-https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords
-&SERVICE-VERSION=1.0.0
-&SECURITY-APPNAME=TylerCas-ComicSea-PRD-a844463b1-2f780528
-&RESPONSE-DATA-FORMAT=XML
-&REST-PAYLOAD
-&keywords=harry%20potter%20phoenix
+  var APIkey = "CTSV8BKGR6BEKQ3F";
+  var ticker = "MSFT"
 
+//Time Series
+  var timeseriesURL = "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=" + ticker + "&interval=5min&apikey=" + APIkey;
 
-
-//Firebase setup...still need to change storage
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBucOADTvEUKByNXdujg0Xz01JGOrw94S4",
-  authDomain: "comicsearch-baf00.firebaseapp.com",
-  databaseURL: "https://comicsearch-baf00.firebaseio.com",
-  projectId: "comicsearch-baf00",
-  storageBucket: "",
-  messagingSenderId: "569479066676",
-  appId: "1:569479066676:web:8328e59cd4e99f11430661",
-  measurementId: "G-EEQ0N3BQTZ"
-};
+  $.ajax({
+    url: timeseriesURL,
+    method: "GET"
+  })
+  .then(function(response){
+    console.log(response)
+  });
 
 
+        // Transfer content to HTML
+//        $(".city").html("<h1>" + response.name + " Weather Details</h1>");
+  //      $(".wind").text("Wind Speed: " + response.wind.speed);
+    //    $(".humidity").text("Humidity: " + response.main.humidity);
+//        $(".temp").text("Temperature (F) " + response.main.temp);
 
+        // Log the data in the console as well
+//        console.log("Wind Speed: " + response.wind.speed);
+//        console.log("Humidity: " + response.main.humidity);
+//        console.log("Temperature (F): " + response.main.temp);
+//      });
+
+
+//Daily Adjusted
+  var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
+
+  $.ajax({
+    url: DailyAdjustedURL,
+    method: "GET"
+  })
+  .then(function(response){
+ //   $(".high").text("High: " + response.high)
+
+    console.log(response)
+  });
+
+//Weekly Adjusted
+  var WeeklyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
+
+  $.ajax({
+    url: WeeklyAdjustedURL,
+    method: "GET"
+  })
+  .then(function(response){
+    console.log(response)
+  });
+
+//Monthly Adjusted
+  var MonthlyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
+
+  $.ajax({
+    url: MonthlyAdjustedURL,
+    method: "Get"
+  })
+  .then(function(response){
+    console.log(response)
+  });
 
