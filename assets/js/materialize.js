@@ -92,6 +92,12 @@ $(document).ready(function(){
 
         // return the card object
         return newsContainer;
+
     }
+  
+        $( document ).ready(function(){
+        $(".dropdown-trigger").dropdown();
+      })
+
 
 });
