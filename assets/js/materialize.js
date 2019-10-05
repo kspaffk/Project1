@@ -96,9 +96,15 @@ $(document).ready(function(){
                 card.append(cardImg, newsDescDiv);
                 newsContainer.append(card);
 
+
                 // return the card object
                 return newsContainer;
     }
+  
+        $( document ).ready(function(){
+        $(".dropdown-trigger").dropdown();
+      })
+
 
     //examples
     $(".news-row").append(getNewsCards("Avengers Save the Planet", "The Avengers finally figured out time travel and went back in town to kill Thanos before he used the stones.", "https://google.com", "https://cdn.vox-cdn.com/thumbor/QjYjrRLVMwCgjZSfE7JjC7URQns=/0x300:3733x2254/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/19253276/1040241490.jpg.jpg"));
