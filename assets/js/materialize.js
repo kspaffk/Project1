@@ -93,3 +93,18 @@
         return newsContainer;
 
     }
+    $(document).ready(function(){
+
+        $("#submit-button").on("click", function(event){
+            event.preventDefault();
+            var usertext=$("#search").val().empty;
+            $(".main-content").empty();
+            var tickerDiv=$("<div>").addClass("ticker-div");
+            var stockDiv=$("<div>").addClass("stock-div");
+            var newsDiv=$("<div>").addClass("news-div");
+            
+            tickerDiv.html("<h1>" + usertext + "</h1>");
+            $(".main-content").append(tickerDiv,stockDiv,newsDiv);
+        })
+    })
+        
