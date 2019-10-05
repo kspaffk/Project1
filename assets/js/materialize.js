@@ -93,17 +93,20 @@
         return newsContainer;
 
     }
+
+    var userSearch;
+
     $(document).ready(function(){
 
         $("#submit-button").on("click", function(event){
             event.preventDefault();
-            var usertext=$("#search").val().empty;
+            var userSearch = $("#search").val();
             $(".main-content").empty();
-            var tickerDiv=$("<div>").addClass("ticker-div");
-            var stockDiv=$("<div>").addClass("stock-div");
-            var newsDiv=$("<div>").addClass("news-div");
+            var tickerDiv = $("<div>").addClass("ticker-div");
+            var stockDiv = $("<div>").addClass("stock-div");
+            var newsDiv = $("<div>").addClass("news-div");
             
-            tickerDiv.html("<h1>" + usertext + "</h1>");
+            tickerDiv.html("<h1>" + userSearch + "</h1>");
             $(".main-content").append(tickerDiv,stockDiv,newsDiv);
         })
     })
