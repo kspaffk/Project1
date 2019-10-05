@@ -1,0 +1,27 @@
+span {
+    display: block;
+}
+
+.main-card {
+    height: 300px;
+}
+
+.close-price {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.close {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.other-prices {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.other-price-titles {
+    font-size: 15px;
+    padding: 5px;
+}
