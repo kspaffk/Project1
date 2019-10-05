@@ -1,5 +1,3 @@
-
-
 // Alpha Vantage API:
 
   var APIkey = "CTSV8BKGR6BEKQ3F";
@@ -14,15 +12,19 @@ $.ajax({
   method: "GET"
 })
 .then(function(response){
+  var dailyhigh = response["Time Series (Daily)"][stockdate]["2. high"];
+  var dailylow = response["Time Series (Daily)"][stockdate]["3. low"];
+  var dailyopen = response["Time Series (Daily)"][stockdate]["1. open"];
+  var dailyclose = response["Time Series (Daily)"][stockdate]["4. close"];
+
   console.log(stockdate)
-  console.log(response["Time Series (Daily)"][stockdate]["2. high"])
-  console.log(response["Time Series (Daily)"][stockdate]["3. low"])
-  console.log(response["Time Series (Daily)"][stockdate]["1. open"])
-  console.log(response["Time Series (Daily)"][stockdate]["4. close"])
+  console.log(dailyhigh)
+  console.log(dailylow)
+  console.log(dailyopen)
+  console.log(dailyclose)
 
   var div = $("<div>").addClass("row");
-  div.append(getPriceCard(stockdate,response["Time Series (Daily)"][stockdate]["2. high"],response["Time Series (Daily)"][stockdate]["3. low"],response["Time Series (Daily)"][stockdate]["1. open"],response["Time Series (Daily)"][stockdate]["4. close"]))
-  $("body").append(div)
+  div.append(getPriceCard(stockdate,dailyhigh,dailylow,dailyopen,dailyclose))
 });
 
 //Weekly Adjusted
@@ -33,13 +35,16 @@ $.ajax({
   method: "GET"
 })
 .then(function(response){
+  var weeklyhigh = response["Weekly Adjusted Time Series"][stockdate]["2. high"];
+  var weeklylow = response["Weekly Adjusted Time Series"][stockdate]["3. low"];
+  var weeklyopen = response["Weekly Adjusted Time Series"][stockdate]["1. open"];
+  var weeklyclose = response["Weekly Adjusted Time Series"][stockdate]["4. close"];
+
   console.log(stockdate)
-  console.log(response["Weekly Adjusted Time Series"][stockdate]["2. high"])
-  console.log(response["Weekly Adjusted Time Series"][stockdate]["3. low"])
-  console.log(response["Weekly Adjusted Time Series"][stockdate]["1. open"])
-  console.log(response["Weekly Adjusted Time Series"][stockdate]["4. close"])
-
-
+  console.log(weeklyhigh)
+  console.log(weeklylow)
+  console.log(weeklyopen)
+  console.log(weeklyclose)
 
 });
 
@@ -51,11 +56,16 @@ $.ajax({
     method: "Get"
   })
   .then(function(response){
+    var monthlyhigh = response["Monthly Adjusted Time Series"][stockdate]["2. high"];
+    var monthlylow = response["Monthly Adjusted Time Series"][stockdate]["3. low"];
+    var monthlyopen = response["Monthly Adjusted Time Series"][stockdate]["1. open"];
+    var monthlyclose = response["Monthly Adjusted Time Series"][stockdate]["4. close"];
+
     console.log(stockdate)
-    console.log(response["Monthly Adjusted Time Series"][stockdate]["2. high"])
-    console.log(response["Monthly Adjusted Time Series"][stockdate]["3. low"])
-    console.log(response["Monthly Adjusted Time Series"][stockdate]["1. open"])
-    console.log(response["Monthly Adjusted Time Series"][stockdate]["4. close"])
+    console.log(monthlyhigh)
+    console.log(monthlylow)
+    console.log(monthlyopen)
+    console.log(monthlyclose)
 
 
   });
