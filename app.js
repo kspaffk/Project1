@@ -1,12 +1,11 @@
-
-
 // Alpha Vantage API:
 
   var APIkey = "CTSV8BKGR6BEKQ3F";
   var ticker = "MSFT";
   var stockdate = "2019-10-04";
-  
-//Daily Adjusted
+  //sdsknk  stockdate.split
+
+  //Daily Adjusted
 var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
 $.ajax({
@@ -14,15 +13,20 @@ $.ajax({
   method: "GET"
 })
 .then(function(response){
+  var dailyhigh = parseFloat(response["Time Series (Daily)"][stockdate]["2. high"],2);
+  var dailylow = parseFloat(response["Time Series (Daily)"][stockdate]["3. low"],2);
+  var dailyopen = parseFloat(response["Time Series (Daily)"][stockdate]["1. open"],2);
+  var dailyclose = parseFloat(response["Time Series (Daily)"][stockdate]["4. close"],2);
+
   console.log(stockdate)
-  console.log(response["Time Series (Daily)"][stockdate]["2. high"])
-  console.log(response["Time Series (Daily)"][stockdate]["3. low"])
-  console.log(response["Time Series (Daily)"][stockdate]["1. open"])
-  console.log(response["Time Series (Daily)"][stockdate]["4. close"])
+  console.log(dailyhigh)
+  console.log(dailylow)
+  console.log(dailyopen)
+  console.log(dailyclose)
 
   var div = $("<div>").addClass("row");
-  div.append(getPriceCard(stockdate,response["Time Series (Daily)"][stockdate]["2. high"],response["Time Series (Daily)"][stockdate]["3. low"],response["Time Series (Daily)"][stockdate]["1. open"],response["Time Series (Daily)"][stockdate]["4. close"]))
-  $("body").append(div)
+  div.append(getPriceCard(stockdate,dailyhigh,dailylow,dailyopen,dailyclose))
+  div.append(stock-div)
 });
 
 //Weekly Adjusted
@@ -33,32 +37,56 @@ $.ajax({
   method: "GET"
 })
 .then(function(response){
+  var weeklyhigh = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["2. high"],2);
+  var weeklylow = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["3. low"],2);
+  var weeklyopen = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["1. open"],2);
+  var weeklyclose = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["4. close"],2);
+
   console.log(stockdate)
-  console.log(response["Weekly Adjusted Time Series"][stockdate]["2. high"])
-  console.log(response["Weekly Adjusted Time Series"][stockdate]["3. low"])
-  console.log(response["Weekly Adjusted Time Series"][stockdate]["1. open"])
-  console.log(response["Weekly Adjusted Time Series"][stockdate]["4. close"])
-
-
+  console.log(weeklyhigh)
+  console.log(weeklylow)
+  console.log(weeklyopen)
+  console.log(weeklyclose)
 
 });
 
 //Monthly Adjusted
   var MonthlyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
+  var data;
   $.ajax({
     url: MonthlyAdjustedURL,
     method: "Get"
   })
   .then(function(response){
+    data = response["Monthly Adjusted Time Series"];
+    var monthlyhigh = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["2. high"],2);
+    var monthlylow = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["3. low"],2);
+    var monthlyopen = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["1. open"],2);
+    var monthlyclose = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["4. close"],2);
+
     console.log(stockdate)
-    console.log(response["Monthly Adjusted Time Series"][stockdate]["2. high"])
-    console.log(response["Monthly Adjusted Time Series"][stockdate]["3. low"])
-    console.log(response["Monthly Adjusted Time Series"][stockdate]["1. open"])
-    console.log(response["Monthly Adjusted Time Series"][stockdate]["4. close"])
+    console.log(monthlyhigh)
+    console.log(monthlylow)
+    console.log(monthlyopen)
+    console.log(monthlyclose)
 
+    console.log('data after response',data)
 
+    var ctx = document.getElementById('myLineChart');
+
+  
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+
+});
   });
+  console.log('data outside ajax call',data)
+
+  
+
+  
 
 //ebay call for find items by keyword
 
