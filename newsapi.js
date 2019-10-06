@@ -18,7 +18,7 @@ function newsFunction(userSearch) {
       // for each loop
        stckNews.forEach(element => {
          // this if is if it has a picture then it will load 
-         if (element.urlToImage !== "") {
+         if (element.urlToImage !== "" && element.urlToImage !== null) {
           $(".news-div").append(getNewsCards(element.title, element.description, element.url, element.urlToImage));
          }
       });
