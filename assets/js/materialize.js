@@ -105,8 +105,8 @@ $(document).ready(function () {
         var userSearch = $("#search").val();
         $(".main-content").empty();
         var tickerDiv = $("<div>").addClass("ticker-div");
-        var stockDiv = $("<div>").addClass("stock-div");
-        var newsDiv = $("<div>").addClass("news-div");
+        var stockDiv = $("<div>").addClass("stock-div row");
+        var newsDiv = $("<div>").addClass("news-div row");
 
         tickerDiv.html("<h1>" + userSearch + "</h1>");
         $(".main-content").append(tickerDiv, stockDiv, newsDiv);
