@@ -110,7 +110,7 @@ $(document).ready(function () {
 
         tickerDiv.html("<h1>" + userSearch + "</h1>");
         $(".main-content").append(tickerDiv, stockDiv, newsDiv);
-        newsFunction();
+        newsFunction(userSearch);
     })
 
 })
