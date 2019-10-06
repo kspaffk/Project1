@@ -39,16 +39,34 @@ h1 {
 }
 
 .news-title {
-    background-color: rgba(0, 131, 143, .6);
+    background-color: #006064;
     overflow: auto;
+    padding: 10px;
+    font-size: 24px;
 }
 
 .ticker-div {
     text-align: center;
 }
 
+.card-image>img {
+    width: 100%;
+    height: auto;
+}
+
+.news {
+    height: 475px;
+    overflow: hidden;
+}
+
 @media screen and (min-width: 992px) {
     .main-card {
         height: 210px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .news-title {
+        font-size: 20px;
     }
 }
