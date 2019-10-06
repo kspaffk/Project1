@@ -8,7 +8,7 @@ header{
     padding-bottom: 10px;
 }
 
-h1{
+h1 {
     font-family: 'Teleindicadores1Regular';
     font-weight: normal;
     font-style: normal;
@@ -39,8 +39,12 @@ h1{
 }
 
 .news-title {
-    background-color: rgba(0, 131, 143, .3);
+    background-color: rgba(0, 131, 143, .6);
     overflow: auto;
+}
+
+.ticker-div {
+    text-align: center;
 }
 
 @media screen and (min-width: 992px) {
