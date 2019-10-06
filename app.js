@@ -4,7 +4,8 @@
   var ticker = "MSFT";
   var stockdate = "2019-10-04";
   //sdsknk  stockdate.split
-//Daily Adjusted
+
+  //Daily Adjusted
 var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
 $.ajax({
@@ -12,19 +13,20 @@ $.ajax({
   method: "GET"
 })
 .then(function(response){
-  var dailyhigh = response["Time Series (Daily)"][stockdate]["2. high"];
-  var dailylow = response["Time Series (Daily)"][stockdate]["3. low"];
-  var dailyopen = response["Time Series (Daily)"][stockdate]["1. open"];
-  var dailyclose = response["Time Series (Daily)"][stockdate]["4. close"];
+  var dailyhigh = parseFloat(response["Time Series (Daily)"][stockdate]["2. high"],2);
+  var dailylow = parseFloat(response["Time Series (Daily)"][stockdate]["3. low"],2);
+  var dailyopen = parseFloat(response["Time Series (Daily)"][stockdate]["1. open"],2);
+  var dailyclose = parseFloat(response["Time Series (Daily)"][stockdate]["4. close"],2);
 
-  console.log(typeof stockdate)
-  console.log(parseFloat(dailyhigh,2))
+  console.log(stockdate)
+  console.log(dailyhigh)
   console.log(dailylow)
   console.log(dailyopen)
   console.log(dailyclose)
 
   var div = $("<div>").addClass("row");
   div.append(getPriceCard(stockdate,dailyhigh,dailylow,dailyopen,dailyclose))
+  div.append(stock-div)
 });
 
 //Weekly Adjusted
@@ -35,10 +37,10 @@ $.ajax({
   method: "GET"
 })
 .then(function(response){
-  var weeklyhigh = response["Weekly Adjusted Time Series"][stockdate]["2. high"];
-  var weeklylow = response["Weekly Adjusted Time Series"][stockdate]["3. low"];
-  var weeklyopen = response["Weekly Adjusted Time Series"][stockdate]["1. open"];
-  var weeklyclose = response["Weekly Adjusted Time Series"][stockdate]["4. close"];
+  var weeklyhigh = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["2. high"],2);
+  var weeklylow = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["3. low"],2);
+  var weeklyopen = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["1. open"],2);
+  var weeklyclose = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["4. close"],2);
 
   console.log(stockdate)
   console.log(weeklyhigh)
@@ -51,15 +53,17 @@ $.ajax({
 //Monthly Adjusted
   var MonthlyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
+  var data;
   $.ajax({
     url: MonthlyAdjustedURL,
     method: "Get"
   })
   .then(function(response){
-    var monthlyhigh = response["Monthly Adjusted Time Series"][stockdate]["2. high"];
-    var monthlylow = response["Monthly Adjusted Time Series"][stockdate]["3. low"];
-    var monthlyopen = response["Monthly Adjusted Time Series"][stockdate]["1. open"];
-    var monthlyclose = response["Monthly Adjusted Time Series"][stockdate]["4. close"];
+    data = response["Monthly Adjusted Time Series"];
+    var monthlyhigh = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["2. high"],2);
+    var monthlylow = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["3. low"],2);
+    var monthlyopen = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["1. open"],2);
+    var monthlyclose = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["4. close"],2);
 
     console.log(stockdate)
     console.log(monthlyhigh)
@@ -67,8 +71,22 @@ $.ajax({
     console.log(monthlyopen)
     console.log(monthlyclose)
 
+    console.log('data after response',data)
 
+    var ctx = document.getElementById('myLineChart');
+
+  
+  var myLineChart = new Chart(ctx, {
+    type: 'line',
+    data: data,
+
+});
   });
+  console.log('data outside ajax call',data)
+
+  
+
+  
 
 //ebay call for find items by keyword
 
