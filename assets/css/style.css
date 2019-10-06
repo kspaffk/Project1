@@ -47,6 +47,14 @@ h1 {
     text-align: center;
 }
 
+.card-image>img {
+    height: 250px;
+}
+
+.news {
+    height: 450px;
+}
+
 @media screen and (min-width: 992px) {
     .main-card {
         height: 210px;
