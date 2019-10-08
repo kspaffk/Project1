@@ -102,7 +102,7 @@ $(document).ready(function () {
 
     $("#submit-button").on("click", function (event) {
         event.preventDefault();
-        var userSearch = $("#search").val();
+        var userSearch = $("#search").val().trim();
         $(".main-content").empty();
         var tickerDiv = $("<div>").addClass("ticker-div");
         var stockDiv = $("<div>").addClass("stock-div row");
