@@ -5,6 +5,31 @@
   var stockdate = "2019-10-04";
   //sdsknk  stockdate.split
 
+
+  var lastStockDay = moment().subtract(1, "days");
+  var lastStockWeek = moment().subtract(7, "days");
+  var lastStockMonth = moment().subtract(1, "months");
+  while (lastStockDay.isoWeekday() > 5) {
+     lastStockDay = moment(lastStockDay).subtract(1, "days");
+  }
+  while (lastStockWeek.isoWeekday() != 5) {
+     lastStockWeek = moment(lastStockWeek).subtract(1, "days");
+  }
+  lastStockMonth = moment(lastStockMonth).startOf("Month");
+  lastStockMonth = moment(lastStockMonth).subtract(1, "days");
+  while (lastStockMonth.isoWeekday() > 5) {
+     lastStockMonth = moment(lastStockMonth).subtract(1, "days");
+  }
+  lastStockDay = lastStockDay.format("YYYY-MM-DD");
+  lastStockWeek = lastStockWeek.format("YYYY-MM-DD");
+  lastStockMonth = lastStockMonth.format("YYYY-MM-DD");
+
+console.log(lastStockDay)
+console.log(lastStockWeek)
+console.log(lastStockMonth)
+
+
+
   //Daily Adjusted
 var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
@@ -24,9 +49,7 @@ $.ajax({
   console.log(dailyopen)
   console.log(dailyclose)
 
-  var div = $("<div>").addClass("row");
-  div.append(getPriceCard(stockdate,dailyhigh,dailylow,dailyopen,dailyclose))
-  div.append(stock-div)
+  $(".stock-div").append(getPriceCard(stockdate,dailyhigh,dailylow,dailyopen,dailyclose))
 });
 
 //Weekly Adjusted
@@ -71,22 +94,9 @@ $.ajax({
     console.log(monthlyopen)
     console.log(monthlyclose)
 
-    console.log('data after response',data)
 
-    var ctx = document.getElementById('myLineChart');
-
-  
-  var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-
-});
   });
-  console.log('data outside ajax call',data)
-
-  
-
-  
+ 
 
 //ebay call for find items by keyword
 
