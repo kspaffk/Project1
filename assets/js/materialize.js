@@ -99,10 +99,12 @@ function getNewsCards(newsTitle, newsDescription, newsURL, newsURLtoImg) {
 var userSearch;
 
 $(document).ready(function () {
-
+   
     $("#submit-button").on("click", function (event) {
         event.preventDefault();
         var userSearch = $("#search").val().trim();
+        // saves data to local storage.
+        localStorage.setItem("recent-search", userSearch);
         $(".main-content").empty();
         var tickerDiv = $("<div>").addClass("ticker-div");
         var stockDiv = $("<div>").addClass("stock-div row");
@@ -111,6 +113,7 @@ $(document).ready(function () {
         tickerDiv.html("<h1>" + userSearch + "</h1>");
         $(".main-content").append(tickerDiv, stockDiv, newsDiv);
         newsFunction(userSearch);
+       // copy out this function and then save user search value as my local storage item so it then re uses that data from search to repopulate main content div.
     })
 
 })
