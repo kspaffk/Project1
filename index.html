@@ -12,11 +12,13 @@
   <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/teleindicadores-1" type="text/css" />
   <!-- materialize css -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- scripts -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script type="text/javascript" src="assets/js/materialize.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="app.js"></script>
   <script src="newsapi.js"></script>
 </head>
@@ -30,45 +32,39 @@
 <body>
 
   <header class="cyan darken-2">
-    <h1 class="amber-text"> Stock Stop </h1>
+    <div class="row header-row">
+      <div class="header-title col s8"> 
+        <h1 class="amber-text">Stock Stop</h1>
+      </div>
+    </div>
   </header>
   <div class="main-content">
     <div class="row">
       <div class="col s4 offset-s4">
-        <div class="card-panel grey darken-1">
-          <span class="amber-text">"To search for the stock you want please enter the ticker of the company you're
-            searching for and click submit (example GOOG for Google)"
-          </span>
+        <div class="card-panel grey darken-1 search-info">
+          <p class="amber-text">"To search for the stock you want information on, please enter the ticker of the company
+            you're searching for and click submit (example GOOG for Google)"
+          </p>
         </div>
         <div class="input-field">
           <form>
-            <input id="search" type="text" class="validate" placeholder="Click Here to Search">
+            <input id="search" type="text" class="search-input" placeholder="Click Here to Search">
             <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
           </form>
         </div>
-
       </div>
-      <div class="col s2 offset-s1 grey lighten-1">
-        Links
-        <p>link 1</p>
-        <p>link 2</p>
-        <p>link 3</p>
-        <p>link 4</p>
-        <p>link 1</p>
-        <p>link 2</p>
-        <p>link 3</p>
-        <p>link 4</p>
-        <p>link 1</p>
-        <p>link 2</p>
-        <p>link 3</p>
-        <p>link 4</p>
+      <div class="col s2 offset-s2 grey lighten-1 sidebar">
+    
+        <h2 class="amber-text"> Recent Search</h2>
+    
       </div>
     </div>
-
-   
-
-
+    
   </div>
+
+
+
+
 
 </body>
 

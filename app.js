@@ -1,11 +1,34 @@
 // Alpha Vantage API:
 
-  var APIkey = "CTSV8BKGR6BEKQ3F";
-  var ticker = "MSFT";
-  var stockdate = "2019-10-04";
-  //sdsknk  stockdate.split
+function stockinfo(userSearch){
 
-  //Daily Adjusted
+  var APIkey = "CTSV8BKGR6BEKQ3F";
+  var ticker = userSearch;
+
+//moment script
+  var lastStockDay = moment().subtract(1, "days");
+  var lastStockWeek = moment();
+  var lastStockMonth = moment();
+  while (lastStockDay.isoWeekday() > 5) {
+     lastStockDay = moment(lastStockDay).subtract(1, "days");
+  }
+  while (lastStockWeek.isoWeekday() != 5) {
+     lastStockWeek = moment(lastStockWeek).subtract(1, "days");
+  }
+  lastStockMonth = moment(lastStockMonth).startOf("Month");
+  lastStockMonth = moment(lastStockMonth).subtract(1, "days");
+  while (lastStockMonth.isoWeekday() > 5) {
+     lastStockMonth = moment(lastStockMonth).subtract(1, "days");
+  }
+  lastStockDay = lastStockDay.format("YYYY-MM-DD");
+  lastStockWeek = lastStockWeek.format("YYYY-MM-DD");
+  lastStockMonth = lastStockMonth.format("YYYY-MM-DD");
+
+console.log(lastStockDay)
+console.log(lastStockWeek)
+console.log(lastStockMonth)
+
+//Daily Adjusted
 var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
 $.ajax({
@@ -13,20 +36,18 @@ $.ajax({
   method: "GET"
 })
 .then(function(response){
-  var dailyhigh = parseFloat(response["Time Series (Daily)"][stockdate]["2. high"],2);
-  var dailylow = parseFloat(response["Time Series (Daily)"][stockdate]["3. low"],2);
-  var dailyopen = parseFloat(response["Time Series (Daily)"][stockdate]["1. open"],2);
-  var dailyclose = parseFloat(response["Time Series (Daily)"][stockdate]["4. close"],2);
+  var dailyhigh = parseFloat(response["Time Series (Daily)"][lastStockDay]["2. high"]).toFixed(2);
+  var dailylow = parseFloat(response["Time Series (Daily)"][lastStockDay]["3. low"]).toFixed(2);
+  var dailyopen = parseFloat(response["Time Series (Daily)"][lastStockDay]["1. open"]).toFixed(2);
+  var dailyclose = parseFloat(response["Time Series (Daily)"][lastStockDay]["4. close"]).toFixed(2);
 
-  console.log(stockdate)
+  console.log(lastStockDay)
   console.log(dailyhigh)
   console.log(dailylow)
   console.log(dailyopen)
   console.log(dailyclose)
 
-  var div = $("<div>").addClass("row");
-  div.append(getPriceCard(stockdate,dailyhigh,dailylow,dailyopen,dailyclose))
-  div.append(stock-div)
+  $(".daily").append(getPriceCard(lastStockDay,dailyhigh,dailylow,dailyopen,dailyclose,"Daily"))
 });
 
 //Weekly Adjusted
@@ -37,16 +58,18 @@ $.ajax({
   method: "GET"
 })
 .then(function(response){
-  var weeklyhigh = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["2. high"],2);
-  var weeklylow = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["3. low"],2);
-  var weeklyopen = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["1. open"],2);
-  var weeklyclose = parseFloat(response["Weekly Adjusted Time Series"][stockdate]["4. close"],2);
+  var weeklyhigh = parseFloat(response["Weekly Adjusted Time Series"][lastStockWeek]["2. high"]).toFixed(2);
+  var weeklylow = parseFloat(response["Weekly Adjusted Time Series"][lastStockWeek]["3. low"]).toFixed(2);
+  var weeklyopen = parseFloat(response["Weekly Adjusted Time Series"][lastStockWeek]["1. open"]).toFixed(2);
+  var weeklyclose = parseFloat(response["Weekly Adjusted Time Series"][lastStockWeek]["4. close"]).toFixed(2);
 
-  console.log(stockdate)
+  console.log(lastStockWeek)
   console.log(weeklyhigh)
   console.log(weeklylow)
   console.log(weeklyopen)
   console.log(weeklyclose)
+
+  $(".weekly").append(getPriceCard(lastStockWeek,weeklyhigh,weeklylow,weeklyopen,weeklyclose,"Weekly"))
 
 });
 
@@ -60,56 +83,30 @@ $.ajax({
   })
   .then(function(response){
     data = response["Monthly Adjusted Time Series"];
-    var monthlyhigh = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["2. high"],2);
-    var monthlylow = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["3. low"],2);
-    var monthlyopen = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["1. open"],2);
-    var monthlyclose = parseFloat(response["Monthly Adjusted Time Series"][stockdate]["4. close"],2);
+    var monthlyhigh = parseFloat(response["Monthly Adjusted Time Series"][lastStockMonth]["2. high"]).toFixed(2);
+    var monthlylow = parseFloat(response["Monthly Adjusted Time Series"][lastStockMonth]["3. low"]).toFixed(2);
+    var monthlyopen = parseFloat(response["Monthly Adjusted Time Series"][lastStockMonth]["1. open"]).toFixed(2);
+    var monthlyclose = parseFloat(response["Monthly Adjusted Time Series"][lastStockMonth]["4. close"]).toFixed(2);
 
-    console.log(stockdate)
+    console.log(lastStockMonth)
     console.log(monthlyhigh)
     console.log(monthlylow)
     console.log(monthlyopen)
     console.log(monthlyclose)
 
-    console.log('data after response',data)
+    $(".monthly").append(getPriceCard(lastStockMonth,monthlyhigh,monthlylow,monthlyopen,monthlyclose,"Monthly"))
 
-    var ctx = document.getElementById('myLineChart');
-
-  
-  var myLineChart = new Chart(ctx, {
-    type: 'line',
-    data: data,
-
-});
   });
-  console.log('data outside ajax call',data)
-
-  
-
-  
-
-//ebay call for find items by keyword
-
-// https://svcs.ebay.com/services/search/FindingService/v1?OPERATION-NAME=findItemsByKeywords
-// &SERVICE-VERSION=1.0.0
-// &SECURITY-APPNAME=TylerCas-ComicSea-PRD-a844463b1-2f780528
-// &RESPONSE-DATA-FORMAT=XML
-// &REST-PAYLOAD
-// &keywords=harry%20potter%20phoenix
-
-
-
-
-//Firebase setup...still need to change storage
+}
+//Firebase setup
 
 const firebaseConfig = {
   apiKey: "AIzaSyBucOADTvEUKByNXdujg0Xz01JGOrw94S4",
   authDomain: "comicsearch-baf00.firebaseapp.com",
   databaseURL: "https://comicsearch-baf00.firebaseio.com",
   projectId: "comicsearch-baf00",
-  storageBucket: "",
+  storageBucket: "comicsearch-baf00.appspot.com",
   messagingSenderId: "569479066676",
   appId: "1:569479066676:web:8328e59cd4e99f11430661",
   measurementId: "G-EEQ0N3BQTZ"
 };
-

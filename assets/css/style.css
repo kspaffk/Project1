@@ -3,7 +3,7 @@ span {
     width: 100%
 }
 
-header{
+header {
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -12,10 +12,32 @@ h1 {
     font-family: 'Teleindicadores1Regular';
     font-weight: normal;
     font-style: normal;
+    
 }
 
+h2 {
+    font-family: 'Teleindicadores1Regular';
+    font-weight: normal;
+    font-style: normal;
+    
+}
+
+p {
+    font-style: italic;
+}
+
+.header-search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end
+}
+
+/*.main-content{
+    display:inline-flex;
+} */
+
 .main-card {
-    height: 390px;
+    height: 100%;
 }
 
 .close-price {
@@ -59,14 +81,18 @@ h1 {
     overflow: hidden;
 }
 
-@media screen and (min-width: 992px) {
-    .main-card {
-        height: 210px;
-    }
+.input-field {
+    color: #84ffff;
 }
 
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .helper-text, .input-field .prefix ~ .autocomplete-content {
+    color: white;
+}
+
+ 
 @media screen and (max-width: 992px) {
     .news-title {
         font-size: 20px;
     }
 }
+
