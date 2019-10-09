@@ -2,7 +2,6 @@
 // examples
 // $(".price-row").append(getPriceCard("2019-02-19", 15.65, 15.15, 15.31, 15.42));
 function getPriceCard(date, high, low, open, close, priceTimeframe) {
-    
     // create the card display area
     var mainCard = $("<div>").addClass("main-card card  cyan lighten-1");
     // specify the card content area
@@ -40,16 +39,7 @@ function getPriceCard(date, high, low, open, close, priceTimeframe) {
     cardContent.append(cardTitle, closePrice, openCardContent, highCardContent, lowCardContent);
     mainCard.append(cardContent);
 
-    if (priceTimeframe === "Daily") {
-        $(".daily").append(mainCard);
-    } else if (priceTimeframe === "Weekly") {
-        $(".weekly").append(mainCard);
-    } else if (priceTimeframe === "Monthly") {
-        $(".monthly").append(mainCard);
-    }
-
-    // return the container object
-    return priceContainer;
+    return mainCard;
 }
 
 
@@ -106,6 +96,10 @@ function populatePageData() {
     $(".main-content").empty();
     var tickerDiv = $("<div>").addClass("ticker-div");
     var stockDiv = $("<div>").addClass("stock-div row");
+    var priceContainerDaily = $("<div>").addClass("col s12 s4 m4 l4 daily");
+    var priceContainerWeekly = $("<div>").addClass("col s12 s4 m4 l4 weekly");
+    var priceContainerMonthly = $("<div>").addClass("col s12 s4 m4 l4 monthly");
+    stockDiv.append(priceContainerDaily, priceContainerWeekly, priceContainerMonthly);
     var newsDiv = $("<div>").addClass("news-div row");
 
     tickerDiv.html("<h1>" + userSearch + "</h1>");

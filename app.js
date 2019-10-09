@@ -47,7 +47,7 @@ $.ajax({
   console.log(dailyopen)
   console.log(dailyclose)
 
-  $(".stock-div").append(getPriceCard(lastStockDay,dailyhigh,dailylow,dailyopen,dailyclose,"Daily"))
+  $(".daily").append(getPriceCard(lastStockDay,dailyhigh,dailylow,dailyopen,dailyclose,"Daily"))
 });
 
 //Weekly Adjusted
@@ -69,7 +69,7 @@ $.ajax({
   console.log(weeklyopen)
   console.log(weeklyclose)
 
-  $(".stock-div").append(getPriceCard(lastStockWeek,weeklyhigh,weeklylow,weeklyopen,weeklyclose,"Weekly"))
+  $(".weekly").append(getPriceCard(lastStockWeek,weeklyhigh,weeklylow,weeklyopen,weeklyclose,"Weekly"))
 
 });
 
@@ -94,7 +94,7 @@ $.ajax({
     console.log(monthlyopen)
     console.log(monthlyclose)
 
-    $(".stock-div").append(getPriceCard(lastStockMonth,monthlyhigh,monthlylow,monthlyopen,monthlyclose,"Monthly"))
+    $(".monthly").append(getPriceCard(lastStockMonth,monthlyhigh,monthlylow,monthlyopen,monthlyclose,"Monthly"))
 
   });
 }
