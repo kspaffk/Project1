@@ -1,9 +1,18 @@
 // function to get HTML for price cards
 // examples
 // $(".price-row").append(getPriceCard("2019-02-19", 15.65, 15.15, 15.31, 15.42));
-function getPriceCard(date, high, low, open, close) {
+function getPriceCard(date, high, low, open, close, priceTimeframe) {
+    if (priceTimeframe === "Daily") {
     // create the container for the card
-    var priceContainer = $("<div>").addClass("col s12 s4 m4 l4");
+        var priceContainer = $("<div>").addClass("col s12 s4 m4 l4 daily");
+    } else if (priceTimeframe === "Weekly") {
+    // create the container for the card
+        var priceContainer = $("<div>").addClass("col s12 s4 m4 l4 weekly");
+    } else if (priceTimeframe === "Monthly") {
+    // create the container for the card
+        var priceContainer = $("<div>").addClass("col s12 s4 m4 l4 monthly");
+    }
+
     // create the card display area
     var mainCard = $("<div>").addClass("main-card card cyan lighten-1");
     // specify the card content area
@@ -109,8 +118,26 @@ $(document).ready(function () {
         $(".main-content").append(tickerDiv, stockDiv, newsDiv);
         stockinfo(userSearch)
         newsFunction(userSearch);
-    })
-    
-  
-})
+
+        createSearchBarHeader();
+    });
+});
+
+function createSearchBarHeader() {
+    var div = $("<div>").addClass("header-search");
+    var form = $("<form>");
+    var searchBar = $("<input>").attr({
+        id: "h-search.input",
+        type: "text",
+        placeholder: "Stock Symbol"
+    });
+    var goButton = $("<button>").addClass("h-submit-button").attr({
+        id: "submit-button",
+        type: "submit"
+    });
+
+    form.append(searchBar, goButton);
+    div.append(form);
+    $("header").append(div);
+};
 

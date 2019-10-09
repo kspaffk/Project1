@@ -3,7 +3,7 @@ span {
     width: 100%
 }
 
-header{
+header {
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -15,15 +15,23 @@ h1 {
     
 }
 
-h2{
+h2 {
     font-family: 'Teleindicadores1Regular';
     font-weight: normal;
     font-style: normal;
     
 }
 
-p{
+p {
     font-style: italic;
+}
+
+.header-search {
+    width: 300px;
+}
+
+.header-title {
+    width: 50%;
 }
 
 /*.main-content{
