@@ -2,17 +2,7 @@
 // examples
 // $(".price-row").append(getPriceCard("2019-02-19", 15.65, 15.15, 15.31, 15.42));
 function getPriceCard(date, high, low, open, close, priceTimeframe) {
-    if (priceTimeframe === "Daily") {
-    // create the container for the card
-        var priceContainer = $("<div>").addClass("col s12 s4 m4 l4 daily");
-    } else if (priceTimeframe === "Weekly") {
-    // create the container for the card
-        var priceContainer = $("<div>").addClass("col s12 s4 m4 l4 weekly");
-    } else if (priceTimeframe === "Monthly") {
-    // create the container for the card
-        var priceContainer = $("<div>").addClass("col s12 s4 m4 l4 monthly");
-    }
-
+    
     // create the card display area
     var mainCard = $("<div>").addClass("main-card card  cyan lighten-1");
     // specify the card content area
@@ -39,7 +29,7 @@ function getPriceCard(date, high, low, open, close, priceTimeframe) {
     var lowPrice = $("<span>").addClass("other-prices black-text").text(low);
     // add lowing title
     var lowTitle = $("<span>").addClass("other-price-titles black-text").text("Low");
-
+    
     // append items to the open card
     openCardContent.append(openPrice, openTitle);
     // append items to the high card 
@@ -49,7 +39,15 @@ function getPriceCard(date, high, low, open, close, priceTimeframe) {
     // append items to the main card
     cardContent.append(cardTitle, closePrice, openCardContent, highCardContent, lowCardContent);
     mainCard.append(cardContent);
-    priceContainer.append(mainCard);
+
+    if (priceTimeframe === "Daily") {
+        $(".daily").append(mainCard);
+    } else if (priceTimeframe === "Weekly") {
+        $(".weekly").append(mainCard);
+    } else if (priceTimeframe === "Monthly") {
+        $(".monthly").append(mainCard);
+    }
+
     // return the container object
     return priceContainer;
 }

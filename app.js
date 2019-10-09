@@ -7,8 +7,8 @@ function stockinfo(userSearch){
 
 //moment script
   var lastStockDay = moment().subtract(1, "days");
-  var lastStockWeek = moment().subtract(7, "days");
-  var lastStockMonth = moment().subtract(1, "months");
+  var lastStockWeek = moment();
+  var lastStockMonth = moment();
   while (lastStockDay.isoWeekday() > 5) {
      lastStockDay = moment(lastStockDay).subtract(1, "days");
   }
