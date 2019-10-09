@@ -91,9 +91,6 @@ function getNewsCards(newsTitle, newsDescription, newsURL, newsURLtoImg) {
 
     // return the card object
     return newsContainer;
-
-
-
 }
 
 var userSearch;
@@ -110,6 +107,7 @@ $(document).ready(function () {
 
         tickerDiv.html("<h1>" + userSearch + "</h1>");
         $(".main-content").append(tickerDiv, stockDiv, newsDiv);
+        stockinfo(userSearch)
         newsFunction(userSearch);
     })
     
