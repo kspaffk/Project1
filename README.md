@@ -1,14 +1,12 @@
 # Project1
-Comic Books and Superhero Lookup
+Stock Stop - The one stop for stock information
 Matt Ayrton
 Tyler Casperson
 Daniel Osornio
 Kent Spafford
 
-A website to search for comic books based on superhero, artist, writer or series. From those searches, we intend to display data regarding comic book series, purchasable items, and reference wiki articles.
-
+A website to lookup stock news and data.
 
 APIS to be used
-Marvel API
-Comic Vine
-eBay
+Alpha Vantage
+News 
