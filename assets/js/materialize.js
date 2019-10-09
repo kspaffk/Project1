@@ -59,7 +59,7 @@ function getPriceCard(date, high, low, open, close) {
 // $(".news-row").append(getNewsCards("Avengers Save the Planet", "The Avengers finally figured out time travel and went back in town to kill Thanos before he used the stones.", "https://google.com", "https://cdn.vox-cdn.com/thumbor/QjYjrRLVMwCgjZSfE7JjC7URQns=/0x300:3733x2254/fit-in/1200x630/cdn.vox-cdn.com/uploads/chorus_asset/file/19253276/1040241490.jpg.jpg"));
 function getNewsCards(newsTitle, newsDescription, newsURL, newsURLtoImg) {
     // create the container for the card
-    var newsContainer = $("<div>").addClass("col s12 s4 m4 l4");
+    var newsContainer = $("<div>").addClass("col s12 s4 m4 l4 news");
     // create the card display area
     var card = $("<div>").addClass("card cyan lighten-1");
     // specify the card content area
@@ -70,7 +70,7 @@ function getNewsCards(newsTitle, newsDescription, newsURL, newsURLtoImg) {
         alt: "news-article"
     });
     // Card title which is the news article title
-    var newsTitle = $("<span>").addClass("card-title news-title").text(newsTitle);
+    var newsTitle = $("<span>").addClass("news-title white-text").html(newsTitle);
     // button to go to article
     var newsLink = $("<a>").addClass("btn-floating halfway-fab waves-effect waves-light red").attr({
         href: newsURL,
@@ -102,15 +102,15 @@ $(document).ready(function () {
 
     $("#submit-button").on("click", function (event) {
         event.preventDefault();
-        var userSearch = $("#search").val();
+        var userSearch = $("#search").val().trim();
         $(".main-content").empty();
         var tickerDiv = $("<div>").addClass("ticker-div");
-        var stockDiv = $("<div>").addClass("stock-div");
-        var newsDiv = $("<div>").addClass("news-div");
+        var stockDiv = $("<div>").addClass("stock-div row");
+        var newsDiv = $("<div>").addClass("news-div row");
 
         tickerDiv.html("<h1>" + userSearch + "</h1>");
         $(".main-content").append(tickerDiv, stockDiv, newsDiv);
-        newsFunction();
+        newsFunction(userSearch);
     })
 
 })
