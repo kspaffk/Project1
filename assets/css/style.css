@@ -27,11 +27,9 @@ p {
 }
 
 .header-search {
-    width: 300px;
-}
-
-.header-title {
-    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end
 }
 
 /*.main-content{
@@ -39,7 +37,7 @@ p {
 } */
 
 .main-card {
-    height: 390px;
+    height: 100%;
 }
 
 .close-price {
@@ -83,13 +81,15 @@ p {
     overflow: hidden;
 }
 
-    
-@media screen and (min-width: 992px) {
-    .main-card {
-        height: 210px;
-    }
+.input-field {
+    color: #84ffff;
 }
 
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .helper-text, .input-field .prefix ~ .autocomplete-content {
+    color: white;
+}
+
+ 
 @media screen and (max-width: 992px) {
     .news-title {
         font-size: 20px;
