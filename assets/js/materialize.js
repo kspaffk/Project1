@@ -84,7 +84,7 @@ function getNewsCards(newsTitle, newsDescription, newsURL, newsURLtoImg) {
 var userSearch;
 
 $(document).ready(function () {
-
+   
     $("#submit-button").on("click", function (event) {
         event.preventDefault();
         populatePageData();
