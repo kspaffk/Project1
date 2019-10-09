@@ -28,16 +28,6 @@ console.log(lastStockDay)
 console.log(lastStockWeek)
 console.log(lastStockMonth)
 
- var SectorURL = "https://www.alphavantage.co/query?function=" + tech + "&apikey=" + APIkey
- 
- $.ajax({
-   url: SectorURL,
-   method: "GET"
- })
- .then(function(response){
-   console.log(response)
- })
-
 //Daily Adjusted
 var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
