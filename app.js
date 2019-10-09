@@ -4,7 +4,6 @@ function stockinfo(userSearch){
 
   var APIkey = "CTSV8BKGR6BEKQ3F";
   var ticker = userSearch;
-  var stockdate = "2019-10-04";
 
 //moment script
   var lastStockDay = moment().subtract(1, "days");
@@ -29,6 +28,16 @@ console.log(lastStockDay)
 console.log(lastStockWeek)
 console.log(lastStockMonth)
 
+ var SectorURL = "https://www.alphavantage.co/query?function=" + tech + "&apikey=" + APIkey
+ 
+ $.ajax({
+   url: SectorURL,
+   method: "GET"
+ })
+ .then(function(response){
+   console.log(response)
+ })
+
 //Daily Adjusted
 var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
 
@@ -42,13 +51,13 @@ $.ajax({
   var dailyopen = parseFloat(response["Time Series (Daily)"][lastStockDay]["1. open"]).toFixed(2);
   var dailyclose = parseFloat(response["Time Series (Daily)"][lastStockDay]["4. close"]).toFixed(2);
 
-  console.log(stockdate)
+  console.log(lastStockDay)
   console.log(dailyhigh)
   console.log(dailylow)
   console.log(dailyopen)
   console.log(dailyclose)
 
-  $(".stock-div").append(getPriceCard(lastStockDay,dailyhigh,dailylow,dailyopen,dailyclose))
+  $(".stock-div").append(getPriceCard(lastStockDay,dailyhigh,dailylow,dailyopen,dailyclose,"Daily"))
 });
 
 //Weekly Adjusted
@@ -64,13 +73,13 @@ $.ajax({
   var weeklyopen = parseFloat(response["Weekly Adjusted Time Series"][lastStockWeek]["1. open"]).toFixed(2);
   var weeklyclose = parseFloat(response["Weekly Adjusted Time Series"][lastStockWeek]["4. close"]).toFixed(2);
 
-  console.log(stockdate)
+  console.log(lastStockWeek)
   console.log(weeklyhigh)
   console.log(weeklylow)
   console.log(weeklyopen)
   console.log(weeklyclose)
 
-  $(".stock-div").append(getPriceCard(lastStockWeek,weeklyhigh,weeklylow,weeklyopen,weeklyclose))
+  $(".stock-div").append(getPriceCard(lastStockWeek,weeklyhigh,weeklylow,weeklyopen,weeklyclose,"Weekly"))
 
 });
 
@@ -89,26 +98,25 @@ $.ajax({
     var monthlyopen = parseFloat(response["Monthly Adjusted Time Series"][lastStockMonth]["1. open"]).toFixed(2);
     var monthlyclose = parseFloat(response["Monthly Adjusted Time Series"][lastStockMonth]["4. close"]).toFixed(2);
 
-    console.log(stockdate)
+    console.log(lastStockMonth)
     console.log(monthlyhigh)
     console.log(monthlylow)
     console.log(monthlyopen)
     console.log(monthlyclose)
 
-    $(".stock-div").append(getPriceCard(lastStockMonth,monthlyhigh,monthlylow,monthlyopen,monthlyclose))
+    $(".stock-div").append(getPriceCard(lastStockMonth,monthlyhigh,monthlylow,monthlyopen,monthlyclose,"Monthly"))
 
   });
 }
-//Firebase setup...still need to change storage
+//Firebase setup
 
 const firebaseConfig = {
   apiKey: "AIzaSyBucOADTvEUKByNXdujg0Xz01JGOrw94S4",
   authDomain: "comicsearch-baf00.firebaseapp.com",
   databaseURL: "https://comicsearch-baf00.firebaseio.com",
   projectId: "comicsearch-baf00",
-  storageBucket: "",
+  storageBucket: "comicsearch-baf00.appspot.com",
   messagingSenderId: "569479066676",
   appId: "1:569479066676:web:8328e59cd4e99f11430661",
   measurementId: "G-EEQ0N3BQTZ"
 };
-
