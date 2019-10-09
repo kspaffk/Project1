@@ -12,7 +12,22 @@ h1 {
     font-family: 'Teleindicadores1Regular';
     font-weight: normal;
     font-style: normal;
+    
 }
+
+h2{
+    font-family: 'Teleindicadores1Regular';
+    font-weight: normal;
+    font-style: normal;
+}
+
+p{
+    font-style: italic;
+}
+
+/*.main-content{
+    display:inline-flex;
+} */
 
 .main-card {
     height: 390px;
@@ -59,6 +74,7 @@ h1 {
     overflow: hidden;
 }
 
+    
 @media screen and (min-width: 992px) {
     .main-card {
         height: 210px;
@@ -70,3 +86,4 @@ h1 {
         font-size: 20px;
     }
 }
+

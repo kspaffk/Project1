@@ -112,6 +112,7 @@ $(document).ready(function () {
         $(".main-content").append(tickerDiv, stockDiv, newsDiv);
         newsFunction(userSearch);
     })
-
+    
+  
 })
 
