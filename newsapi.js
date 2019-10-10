@@ -5,7 +5,7 @@ function newsFunction(userSearch) {
  
 
   // query url for my call with the search parameters
-    var queryUrl =  "https://newsapi.org/v2/everything?q=" + userSearch + "&pageSize=5&outputsize=compact&apiKey=65bc9b92a33b4a738e32c2dfe3e014c7";
+    var queryUrl =  "https://newsapi.org/v2/everything?q=" + userSearch + "&pageSize=6&apiKey=65bc9b92a33b4a738e32c2dfe3e014c7";
   
     $.ajax({
         url: queryUrl,
