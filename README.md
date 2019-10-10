@@ -11,3 +11,5 @@ A website to search for stocks based on daily, weekly, and monntly quotes. From 
 APIS to be used
 News API 
 Stock API 
+
+https://docs.google.com/presentation/d/1lq1OrfL7cJMt7TUKv7lwkRZSRfQfjqWhTRWUq2VHEDI/edit?usp=sharing
