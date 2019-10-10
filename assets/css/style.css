@@ -32,10 +32,6 @@ p {
     align-items: flex-end
 }
 
-/*.main-content{
-    display:inline-flex;
-} */
-
 .main-card {
     height: 100%;
 }
@@ -79,6 +75,11 @@ p {
 .news {
     height: 475px;
     overflow: hidden;
+}
+
+.news-src-attr {
+    margin: 15px;
+    font-size: 10px;
 }
 
 .input-field {

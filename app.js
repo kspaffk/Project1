@@ -29,7 +29,7 @@ console.log(lastStockWeek)
 console.log(lastStockMonth)
 
 //Daily Adjusted
-var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
+var DailyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&outputsize=compact&symbol=" + ticker + "&apikey=" + APIkey
 
 $.ajax({
   url: DailyAdjustedURL,
@@ -51,7 +51,7 @@ $.ajax({
 });
 
 //Weekly Adjusted
-var WeeklyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
+var WeeklyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY_ADJUSTED&outputsize=compact&symbol=" + ticker + "&apikey=" + APIkey
 
 $.ajax({
   url: WeeklyAdjustedURL,
@@ -74,7 +74,7 @@ $.ajax({
 });
 
 //Monthly Adjusted
-  var MonthlyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&symbol=" + ticker + "&apikey=" + APIkey
+  var MonthlyAdjustedURL = "https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY_ADJUSTED&outputsize=compact&symbol=" + ticker + "&apikey=" + APIkey
 
   var data;
   $.ajax({

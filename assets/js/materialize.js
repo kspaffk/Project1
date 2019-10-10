@@ -69,11 +69,12 @@ function getNewsCards(newsTitle, newsDescription, newsURL, newsURLtoImg) {
     var newsDescDiv = $("<div>").addClass("card-content");
     // paragraph for news description
     var newsDescP = $("<p>").text(newsDescription);
+    var newsapiAttr = $("<span>").addClass("news-src-attr").text("Courtesy of NewsAPI.org");
 
     // combine the image part of card
     newsLink.append(linkIcon);
     cardImg.append(newsImg, newsTitle, newsLink);
-    newsDescDiv.append(newsDescP);
+    newsDescDiv.append(newsDescP, newsapiAttr);
     card.append(cardImg, newsDescDiv);
     newsContainer.append(card);
 
