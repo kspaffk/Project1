@@ -28,7 +28,7 @@ function getPriceCard(date, high, low, open, close, priceTimeframe) {
     var lowPrice = $("<span>").addClass("other-prices black-text").text(low);
     // add lowing title
     var lowTitle = $("<span>").addClass("other-price-titles black-text").text("Low");
-    
+
     // append items to the open card
     openCardContent.append(openPrice, openTitle);
     // append items to the high card 
@@ -84,7 +84,7 @@ function getNewsCards(newsTitle, newsDescription, newsURL, newsURLtoImg) {
 var userSearch;
 
 $(document).ready(function () {
-   
+
     $("#submit-button").on("click", function (event) {
         event.preventDefault();
         populatePageData();
@@ -93,6 +93,7 @@ $(document).ready(function () {
 
 function populatePageData() {
     var userSearch = $(".search-input").val().trim();
+    localStorage.setItem('recent-searches', userSearch);
     $(".main-content").empty();
     var tickerDiv = $("<div>").addClass("ticker-div");
     var stockDiv = $("<div>").addClass("stock-div row");
@@ -108,6 +109,7 @@ function populatePageData() {
     newsFunction(userSearch);
 
     createSearchBarHeader();
+ 
 }
 
 function createSearchBarHeader() {
@@ -133,4 +135,5 @@ function createSearchBarHeader() {
         $("#header-search").remove();
     });
 };
+
 
