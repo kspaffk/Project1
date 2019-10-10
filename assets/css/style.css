@@ -1,0 +1,103 @@
+span {
+    display: block;
+    width: 100%
+}
+
+header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-family: 'Teleindicadores1Regular';
+    font-weight: normal;
+    font-style: normal;
+    
+}
+
+h2 {
+    font-family: 'Teleindicadores1Regular';
+    font-weight: normal;
+    font-style: normal;
+    
+}
+
+p {
+    font-style: italic;
+}
+
+.header-search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end
+}
+
+.main-card {
+    height: 100%;
+}
+
+.close-price {
+    font-size: 40px;
+    padding: 10px;
+}
+
+.close {
+    font-size: 20px;
+    padding: 5px;
+}
+
+.other-prices {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.other-price-titles {
+    font-size: 15px;
+    padding: 5px;
+}
+
+.news-title {
+    background-color: #006064;
+    overflow: auto;
+    padding: 10px;
+    font-size: 24px;
+}
+
+.ticker-div {
+    text-align: center;
+}
+
+.card-image>img {
+    width: 100%;
+    height: auto;
+}
+
+.news {
+    height: 475px;
+    overflow: hidden;
+}
+
+.news-src-attr {
+    margin: 15px;
+    font-size: 10px;
+}
+
+.input-field {
+    color: #84ffff;
+}
+
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .helper-text, .input-field .prefix ~ .autocomplete-content {
+    color: white;
+}
+
+footer {
+    text-align: center;
+   
+}
+ 
+@media screen and (max-width: 992px) {
+    .news-title {
+        font-size: 20px;
+    }
+}
+
